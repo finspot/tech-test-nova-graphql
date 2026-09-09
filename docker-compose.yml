@@ -1,0 +1,24 @@
+# Only here so you don't have to install PostgreSQL to take the test.
+#
+# It listens on 5433, not the usual 5432, so it can't collide with a PostgreSQL
+# you may already run locally. config/database.yml defaults to 5433 to match.
+#
+# Port taken too? One variable moves both the container and Rails:
+#   DATABASE_PORT=5434 docker compose up -d
+#   DATABASE_PORT=5434 bundle exec rake db:prepare
+#
+# If you'd rather use your own PostgreSQL, skip this file and export
+# DATABASE_PORT (and the other DATABASE_* if needed).
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '${DATABASE_PORT:-5433}:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 2s
+      timeout: 5s
+      retries: 15

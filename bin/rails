@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Standard Rails binstub. The `rails` CLI finds the app by walking up for this
+# file, so without it `rails server` / `rails console` print `rails new` help.
+APP_PATH = File.expand_path('../config/application', __dir__)
+require_relative '../config/boot'
+require 'rails/commands'

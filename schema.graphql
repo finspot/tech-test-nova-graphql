@@ -1,0 +1,58 @@
+"""
+Whoever is calling. Wiring example, delete it.
+"""
+type Caller {
+  """
+  Mortgage file the caller is scoped to, if any.
+  """
+  projectId: ID
+
+  """
+  Role the API resolved from the request.
+  """
+  role: String!
+}
+
+"""
+Input for echo. Wiring example, delete it.
+"""
+input EchoInput {
+  """
+  Anything. It comes back as is.
+  """
+  message: String!
+}
+
+"""
+Result of echo. Wiring example, delete it.
+"""
+type EchoPayload {
+  """
+  Role the API resolved from the request.
+  """
+  callerRole: String!
+
+  """
+  What you sent.
+  """
+  message: String!
+}
+
+type Mutation {
+  """
+  Returns what you send, plus the resolved role. Wiring example, delete it.
+  """
+  echo(input: EchoInput!): EchoPayload!
+}
+
+type Query {
+  """
+  Health check. Needs no caller.
+  """
+  ping: String!
+
+  """
+  Returns the caller the API resolved. Wiring example, delete it.
+  """
+  whoami: Caller!
+}

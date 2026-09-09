@@ -1,0 +1,7 @@
+# Le schéma que tu proposes, en SDL (Schema Definition Language).
+#
+# Il couvre les deux consommateurs décrits dans BRIEF.md : l'app client et le back-office
+# expert.
+#
+# C'est une proposition d'architecture, elle n'a pas besoin d'être entièrement implémentée.
+# Ne la confonds pas avec le schema.graphql de la racine, qui est généré depuis le code servi.
